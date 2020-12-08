@@ -9,6 +9,11 @@ import Route from '@/router'
 import '@/styles/rem'
 import '@/styles/reset.css'
 import '@/styles/index.less'
+import { shopInfo } from '@/utils/interFaces'
+
+shopInfo(1).then(res => {
+  console.log(res)
+})
 
 ReactDOM.render(
   <Provider store={store}>

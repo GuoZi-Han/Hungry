@@ -1,15 +1,15 @@
 export default {
   getCite: 'https://elm.cangdu.org/v1/cities',
-  getCiteMessage: 'https://elm.cangdu.org/v1/cities/:id',
+  getCiteMessage: 'https://elm.cangdu.org/v1/cities',
   search: 'https://elm.cangdu.org/v1/pois',
-  getAddress: 'https://elm.cangdu.org/v2/pois/:geohash', //定位
+  getAddress: 'https://elm.cangdu.org/v2/pois/', //定位
   eatType: 'https://elm.cangdu.org/v2/index_entry',
   shopList: 'https://elm.cangdu.org/shopping/restaurants', //商铺列表
   searchShop: 'https://elm.cangdu.org/v4/restaurants', //搜索商铺
   allShopType: 'https://elm.cangdu.org/shopping/v2/restaurant/category',
   peiSong: 'https://elm.cangdu.org/shopping/v1/restaurants/delivery_modes',
   shopActivity: 'https://elm.cangdu.org/shopping/v1/restaurants/activity_attributes', //商家属性活动列表
-  shopInfo: 'https://elm.cangdu.org/shopping/restaurant/:shopid',
+  shopInfo: 'https://elm.cangdu.org/shopping/restaurant/',
   upDateImg: 'https://elm.cangdu.org/v1/addimg/:type',
   addShop: 'https://elm.cangdu.org/shopping/addshop',
   addEatType: 'https://elm.cangdu.org/shopping/addcategory',
