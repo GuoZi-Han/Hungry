@@ -2,7 +2,7 @@ import React from 'react';
 import Loadable from 'react-loadable'
 
 // 默认的 Loading
-const loadingComponent = () => <div>loading</div>
+const loadingComponent = () => <div><img src="/img/5-160914192R6-50.gif" alt=""/></div>
 
 export default function (loader, loading = loadingComponent) {
   return Loadable({
