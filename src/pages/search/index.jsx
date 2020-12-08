@@ -1,11 +1,18 @@
 import React from 'react'
-import './styles.less'
 
-function Search (props) {
+import './styles.less'
+import HeaderN from '@/components/HeaderN'
+import FooterN from '@/components/FooterN'
+
+function Search(props) {
 
   return (
-    <div>
-         搜索页
+    <div className="lmj_home">
+      <HeaderN />
+      <section>
+        搜索页
+      </section>
+      <FooterN />
     </div>
   )
 }
