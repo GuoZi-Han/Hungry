@@ -1,21 +1,14 @@
 import React from 'react'
-
 import './styles.less'
-import HeaderN from '@/components/HeaderN'
-
-function Home(props) {
-  const r = () => {
-    console.log('r');
-  }
+import { geCityList } from '@/utils/interFaces'
+function Home (props) {
+  React.useEffect(() => {
+    geCityList({ type: "group"}).then(res => {
+      console.log(res)
+    })
+  }, [])
   return (
     <div className="pages-home">
-      <HeaderN
-        isSearch={true}
-        lef="ele.me"
-        cen="天津"
-        rig=""
-        rigOnClick={r}
-      />
     </div>
   )
 }
