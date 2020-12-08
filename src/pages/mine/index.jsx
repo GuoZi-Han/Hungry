@@ -1,11 +1,19 @@
 import React from 'react'
-import './styles.less'
 
-function mine (props) {
+
+import './styles.less'
+import HeaderN from '@/components/HeaderN'
+import FooterN from '@/components/FooterN'
+
+function mine(props) {
 
   return (
-    <div>
-         我的页
+    <div className="lmj_home">
+      <HeaderN />
+      <section>
+        我的页
+      </section>
+      <FooterN />
     </div>
   )
 }

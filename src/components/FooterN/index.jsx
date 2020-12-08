@@ -6,36 +6,38 @@ import _ from 'loadsh'
 import "./style.less"
 
 function FooterN(props) {
-    // console.log(props.location.pathname);
-    // const path = _.get(props, 'props.location.pathname', '/')
+    let path = _.get(props, 'location.pathname', '/')
+    const fun=(a)=>{
+        props.history.push(a)
+    }
     return (
         <div className="FooterN">
-            <NavLink to="/">
-                <dl>
-                    <dt><LogoutOutlined /></dt>
-                    <dd>外卖</dd>
-                </dl>
-            </NavLink>
-            <NavLink to="/search">
-                <dl>
-                    <dt><CompassOutlined /></dt>
-                    <dd>搜索</dd>
-                </dl>
-            </NavLink>
-            
-            <NavLink to="/indent">
-                <dl>
-                    <dt><CopyOutlined /></dt>
-                    <dd>订单</dd>
-                </dl>
-            </NavLink>
-            
-            <NavLink to="/my">
-                <dl>
-                    <dt><UserOutlined /></dt>
-                    <dd>我的</dd>
-                </dl>
-            </NavLink>
+            {/* <Link to="/"> */}
+            <dl onClick={()=>fun('/')} className={path === "/" ? 'actives' : ''}>
+                <dt><LogoutOutlined /></dt>
+                <dd>外卖</dd>
+            </dl>
+            {/* </Link> */}
+            {/* <Link to="/search"> */}
+            <dl onClick={()=>fun('/search')}  className={path === "/search" ? 'actives' : ''}>
+                <dt><CompassOutlined /></dt>
+                <dd>搜索</dd>
+            </dl>
+            {/* </Link> */}
+
+            {/* <Link to="/indent"> */}
+            <dl onClick={()=>fun('/indent')}  className={path === "/indent" ? 'actives' : ''}>
+                <dt><CopyOutlined /></dt>
+                <dd>订单</dd>
+            </dl>
+            {/* </Link> */}
+
+            {/* <NavLink to="/my"> */}
+            <dl onClick={()=>fun('/my')}  className={path === "/my" ? 'actives' : ''}>
+                <dt><UserOutlined /></dt>
+                <dd>我的</dd>
+            </dl>
+            {/* </NavLink> */}
             {/* <dl>
                 <dt className={path === "/indent" ? 'active' : ''}><CopyOutlined /></dt>
                 <dd><Link to="/indent">订单</Link></dd>

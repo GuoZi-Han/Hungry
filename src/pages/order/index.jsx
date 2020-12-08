@@ -1,11 +1,18 @@
 import React from 'react'
-import './styles.less'
 
-function Order (props) {
+import './styles.less'
+import HeaderN from '@/components/HeaderN'
+import FooterN from '@/components/FooterN'
+
+function Order(props) {
 
   return (
-    <div>
-         订单页
+    <div className="lmj_home">
+      <HeaderN />
+      <section>
+        订单页
+      </section>
+      <FooterN />
     </div>
   )
 }
