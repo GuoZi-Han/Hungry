@@ -9,6 +9,11 @@ import Rouer from '@/router'
 import '@/styles/rem'
 import '@/styles/reset.css'
 import '@/styles/index.less'
+import { Out } from '@/utils/interFaces'
+
+Out().then(res => {
+  console.log(res)
+})
 
 ReactDOM.render(
   <Provider store={store}>
