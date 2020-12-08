@@ -4,6 +4,7 @@ const {
   addLessLoader,
   fixBabelImports,
   override,
+  addPostcssPlugins,
   addDecoratorsLegacy
 } = require('customize-cra')
 const path = require('path')
@@ -22,6 +23,9 @@ module.exports = override(
     javascriptEnabled: true,
     // modifyVars: styles,
   }),
+  addPostcssPlugins([
+    require('postcss-px2rem')({ remUnit: 75 })
+  ]),
   // 别名
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src'),
