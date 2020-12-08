@@ -144,3 +144,250 @@ export function shopInfo (message) {
       })
   })
 }
+
+// 上传图片
+export function upImg (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.upDateImg,qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 添加餐馆
+export function addShop (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.addShop,qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 添加食品种类
+export function addFoodSpecies (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.addEatType,qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 添加食品
+export function addFood (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.addEat,qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取食品列表
+export function getFoodNewList (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getEatList1+'?'+qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取评价信息
+export function getEvaluationInfo (message,info) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.pingJia+message+'/ratings?'+qs.stringify(info))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取评价分数
+export function getEvaluationScore (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.pingJiaFenShu+message+'/ratings/scores')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取评价分类
+export function getEvaluationType (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.pingJiaType+message+'/ratings/tags')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 加入购物车
+export function addCar (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.addShopCar, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取备注信息
+export function getNoteInfo (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.beiZhu + message + '/remarks')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取收货地址列表
+export function getAddressList (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.shouHuoDiZhi + message + '/addresses')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取验证码
+export function getCode (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.yanZheng, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取用户信息
+export function getUsersInfo () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getUser)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 登录
+export function Login (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.login, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 退出
+export function Out () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.unLogin)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 修改密码
+export function writePass (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.upPass, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 增加收货地址
+export function addGoodAddress (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.addAddress, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 删除收货地址
+export function delGoodAddress (message) {
+  return new Promise ((resolve, reject) => {
+    axios.delete(api.delAddress, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 下单
+export function PlacetTheOrder (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.xiaDan, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}

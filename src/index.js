@@ -9,9 +9,9 @@ import Route from '@/router'
 import '@/styles/rem'
 import '@/styles/reset.css'
 import '@/styles/index.less'
-import { shopInfo } from '@/utils/interFaces'
+import { Out } from '@/utils/interFaces'
 
-shopInfo(1).then(res => {
+Out().then(res => {
   console.log(res)
 })
 
