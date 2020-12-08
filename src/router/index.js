@@ -1,33 +1,28 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route, Link, NavLink } from 'react-router-dom'
-import { renderRoutes } from 'react-router-config'
-import { Home } from '@/router/componens'
-
-function Root ({ route }) {
-  return renderRoutes(route.routes)
-}
-
-const routes = [
-  {
-    component: Root,
-    routes: [
-      {
-        path: '/',
-        component: Home,
-      },
-    ]
-  }
-]
-
-export default function Router () {
+import { Switch, Route } from 'react-router-dom'
+import {
+  Home,
+  Search,
+  Order,
+  Mine,
+  PasswordChanged,
+  ResetPassword,
+  SelectCity,
+  ShopGeneral,
+  LocatingCity,
+} from '@/router/componens'
+import AnimatedRouter from 'react-animated-router';
+import './style.css';
+export default function Router() {
   return (
-    <BrowserRouter>
-      <>
-        {/* <h1><Link to="/login">login</Link></h1>
-        <h1><Link to="/forms">forms</Link></h1>
-        <h1><Link to="/">home</Link></h1> */}
-        {renderRoutes(routes)}
-      </>
-    </BrowserRouter>
+    <div>
+      <AnimatedRouter>
+        <Route path="/login" component={PasswordChanged} />
+        <Route path="/search" component={Search} />
+        <Route path="/indent" component={Order} />
+        <Route path="/my" component={Mine} />
+        <Route exact path="/" component={Home} />
+      </AnimatedRouter>
+    </div>
   )
 }
