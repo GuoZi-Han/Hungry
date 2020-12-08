@@ -1,14 +1,12 @@
 import React from 'react'
 import './styles.less'
-import { geCityList } from '@/utils/interFaces'
-function Home (props) {
-  React.useEffect(() => {
-    geCityList({ type: "group"}).then(res => {
-      console.log(res)
-    })
-  }, [])
+
+import FooterN from '@/components/FooterN'
+
+function Home(props) {
   return (
     <div className="pages-home">
+      <FooterN />
     </div>
   )
 }

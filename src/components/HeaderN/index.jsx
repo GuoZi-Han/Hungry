@@ -5,7 +5,6 @@ import { Link, withRouter } from 'react-router-dom'
 import "./style.less"
 
 function HeaderN(props) {
-    console.log(props);
     const { history, cen, isSearch, lef, rig } = props
     const fan = () => {
         history.go(-1)
