@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.animated-router {
+    /** START: 自定义进出场动画 **/
+    /** END **/
+}
+
+.animated-router-container {
+    /* 动画容器节点 */
+}
+
+.animated-router-in-transition {
+    /* 页面动画中 */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.animated-router-forward-enter {
+    /*进入*/
+    opacity: 0;
+    transition: all 1s;
+}
+
+.animated-router-forward-enter-active {
+    /*进入中*/
+    opacity: 1;
+    transition: all 1s;
+}
+
+.animated-router-forward-exit {
+    opacity: 1;
+    transition: all 1s;
+}
+
+.animated-router-forward-exit-active {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.animated-router-backward-enter {
+    opacity: 1;
+    transition: all 1s;
+}
+
+.animated-router-backward-enter-active {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.animated-router-backward-exit {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.animated-router-backward-exit-active {
+    opacity: 1;
+    transition: all 1s;
+} 
+
+
+.animated-router-forward-exit,
+.animated-router-backward-exit {
+    position: absolute !important;
+    width: 100%;
+    top: 0;
+    left: 0;
+}

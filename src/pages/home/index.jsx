@@ -6,7 +6,6 @@ import './styles.less'
 import HeaderN from '@/components/HeaderN'
 import FooterN from '@/components/FooterN'
 
-
 function Home(props) {
   return (
     <div className="lmj_home">
