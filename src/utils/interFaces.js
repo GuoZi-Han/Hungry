@@ -443,3 +443,354 @@ export function AvailableRedEnvelopes (message, info) {
       })
   })
 }
+
+// 过期红包
+export function ExpiredAredEnvelope (message, info) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.oldRedBag + message + '/expired_hongbaos?' + qs.stringify(info))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 兑换红包
+export function ForAredEnvelope (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.addRedBag, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 管理员登录
+export function administratorLogin (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.vip, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 管理员退出登录
+export function administratorUnLogin () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.unVip)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 管理员信息
+export function administratorInfo () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.vipInfo)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取某日API请求量
+export function someDayRequestNum (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getApis + message + '/count')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取所有API请求量
+export function getAllRequestNum () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.allApis)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取某天用户注册量
+export function someDayUserReg (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getDayApi + message + '/count')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取所有用户注册量
+export function getAllRegNum () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.allUser)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取某天订单数量
+export function someDayOrderNum (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getDaydds + message + '/count')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+} 
+
+// 获取所有订单数量
+export function getAllOrderNum () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getAllDds)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 管理员列表
+export function administratorList (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.vipList + '?' + qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取管理员数量
+export function getAdministratorNum () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getVipNum)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取店铺食品种类
+export function getFoodsSpecies (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.shopEatTypes +message)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取餐馆数量
+export function getRestaurantsNum () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getShops)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 更新餐馆
+export function updateRestaurants (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.updateShop, qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 删除餐馆
+export function deleteRestaurants (message) {
+  return new Promise ((resolve, reject) => {
+    axios.delete(api.delShop + message)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+//  获取食品列表
+export function getFoodsList (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getEatList2 + '?' + qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取食品数量
+export function getFoodsNum () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getEats)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取食品种类详情
+export function getFoodsSpeciesInfo (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getEatTypeInfo + message)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 更新食品
+export function updateFoods (message) {
+  return new Promise ((resolve, reject) => {
+    axios.post(api.updateEat + qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 删除食品
+export function deleteFoods (message) {
+  return new Promise ((resolve, reject) => {
+    axios.delete(api.delEat + message)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取用户列表
+export function getUsersList (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getUserList + '?' + qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取订单列表
+export function getOrdersList (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getddList + '?' + qs.stringify(message))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取地址信息
+export function getAddressInformation (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.addresse + message)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取用户分布信息
+export function getUserDistributionInformation (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getUserFenBu)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 获取某天管理员注册量
+export function someDayAdminRegNum (message) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.getRegVipDay + message + '/count')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+} 

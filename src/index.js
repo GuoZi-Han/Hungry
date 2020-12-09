@@ -9,9 +9,9 @@ import Rouer from '@/router'
 import '@/styles/rem'
 import '@/styles/reset.css'
 import '@/styles/index.less'
-import { AvailableRedEnvelopes } from '@/utils/interFaces'
+import { someDayAdminRegNum } from '@/utils/interFaces'
 
-AvailableRedEnvelopes(1, {limit: 10}).then(res => {
+someDayAdminRegNum('2017-05-29').then(res => {
   console.log(res)
 })
 

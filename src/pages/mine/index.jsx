@@ -34,6 +34,7 @@ function Mine(props) {
         <div>
 
         </div>
+
       </section>
       <FooterN />
     </div>
