@@ -9,11 +9,7 @@ import Rouer from '@/router'
 import '@/styles/rem'
 import '@/styles/reset.css'
 import '@/styles/index.less'
-import { someDayAdminRegNum } from '@/utils/interFaces'
 
-someDayAdminRegNum('2017-05-29').then(res => {
-  console.log(res)
-})
 
 ReactDOM.render(
   <Provider store={store}>
