@@ -23,6 +23,7 @@ function Home(props) {
             <h3 style={contentStyle}>2</h3>
           </div>
         </Carousel>
+        <div className="separate"></div>
       </section>
       <FooterN />
     </div>
