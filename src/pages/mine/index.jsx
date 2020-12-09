@@ -9,7 +9,7 @@ function mine(props) {
 
   return (
     <div className="home lmj_home">
-      <HeaderN />
+      <HeaderN /> 
       <section>
         我的页
       </section>
