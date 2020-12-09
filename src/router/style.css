@@ -19,43 +19,43 @@
 .animated-router-forward-enter {
     /*进入*/
     opacity: 0;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .animated-router-forward-enter-active {
     /*进入中*/
     opacity: 1;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .animated-router-forward-exit {
     opacity: 1;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .animated-router-forward-exit-active {
     opacity: 0;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .animated-router-backward-enter {
     opacity: 1;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .animated-router-backward-enter-active {
     opacity: 0;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .animated-router-backward-exit {
     opacity: 0;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .animated-router-backward-exit-active {
     opacity: 1;
-    transition: all 1s;
+    transition: all 0.5s;
 } 
 
 
