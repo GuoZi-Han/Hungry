@@ -37,7 +37,7 @@ const ForARedEnvelope = Loadable(() => import('@/pages/forARedEnvelope')) //å…‘æ
 
 // ForARedEnvelope
 
-export {
+export default{
   Home,
   Search,
   Order,
