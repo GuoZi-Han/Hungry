@@ -8,7 +8,7 @@ import FooterN from '@/components/FooterN'
 function mine(props) {
 
   return (
-    <div className="lmj_home">
+    <div className="home lmj_home">
       <HeaderN />
       <section>
         我的页

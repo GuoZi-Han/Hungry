@@ -1,15 +1,11 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import {
   Home,
   Search,
   Order,
   Mine,
   PasswordChanged,
-  ResetPassword,
-  SelectCity,
-  ShopGeneral,
-  LocatingCity,
 } from '@/router/componens'
 import AnimatedRouter from 'react-animated-router';
 import './style.css';

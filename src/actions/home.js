@@ -1,14 +1,17 @@
 import { createActions } from 'redux-actions'
-import { post } from '@/utils/request'
-import api from '@/services/api'
+
+import {
+  lmjfoodTypeList
+} from '@/constants/actionTypes'
+// 请求
+import {
+  foodTypeList
+} from '@/utils/interFaces'
 
 export default createActions({
-  // [SET_HOME_AGE]: opt => post(api.sampleList, opt),
+  [lmjfoodTypeList]: opt => foodTypeList(opt),
 })
 
-/* 
- * 所有请求接口的数据 必须放到 redux
-*/
 
 
 
