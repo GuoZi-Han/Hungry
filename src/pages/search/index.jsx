@@ -9,7 +9,6 @@ import { CloseOutlined } from '@ant-design/icons'
 function Search(props) {
 
   const [isBool, setIsBool] = useState('none')
-  const 
 
   return (
     <div className="home lmj_home">
