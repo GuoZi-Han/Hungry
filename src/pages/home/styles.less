@@ -13,16 +13,21 @@
 .lmj_home>section::-webkit-scrollbar {
   display: none;
 }
-img{
-  display: block;width: 100%;height: auto;
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
-.lmj_banner{
-  display: flex!important;
+
+.lmj_banner {
+  display: flex !important;
   flex-wrap: wrap;
   white-space: nowrap;
-  dl{
-    width: 25%;
-    margin: 0;
+
+  dl {
+    width: 23%;
+    margin: 0 1%;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -31,4 +36,23 @@ img{
     box-sizing: border-box;
     padding: 0.2rem;
   }
+
+  dd {
+    padding: 0;
+    margin: 0;
+  }
+}
+.slick-dots{
+  bottom: 0rem!important;margin-bottom: 0;
+}
+
+.slick-dots li{
+  width: 0.15rem!important;height: 0.15rem!important;border-radius: 50%;
+  background: #ccc;overflow: hidden;
+  button{
+    width: 0.15rem!important;height: 0.15rem!important;
+  }
+}
+.slick-dots .slick-active button{
+  background: aqua!important;
 }
