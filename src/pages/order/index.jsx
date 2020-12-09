@@ -7,7 +7,7 @@ import FooterN from '@/components/FooterN'
 function Order(props) {
 
   return (
-    <div className="lmj_home">
+    <div className="home lmj_home">
       <HeaderN />
       <section>
         订单页

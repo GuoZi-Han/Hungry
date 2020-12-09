@@ -1,39 +1,39 @@
 import React from 'react'
 import { LogoutOutlined, CopyOutlined, CompassOutlined, UserOutlined } from '@ant-design/icons'
-import { NavLink, withRouter, Link } from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import _ from 'loadsh'
 
 import "./style.less"
 
 function FooterN(props) {
     let path = _.get(props, 'location.pathname', '/')
-    const fun=(a)=>{
+    const fun = (a) => {
         props.history.push(a)
     }
     return (
         <div className="FooterN">
             {/* <Link to="/"> */}
-            <dl onClick={()=>fun('/')} className={path === "/" ? 'actives' : ''}>
+            <dl onClick={() => fun('/')} className={path === "/" ? 'actives' : ''}>
                 <dt><LogoutOutlined /></dt>
                 <dd>外卖</dd>
             </dl>
             {/* </Link> */}
             {/* <Link to="/search"> */}
-            <dl onClick={()=>fun('/search')}  className={path === "/search" ? 'actives' : ''}>
+            <dl onClick={() => fun('/search')} className={path === "/search" ? 'actives' : ''}>
                 <dt><CompassOutlined /></dt>
                 <dd>搜索</dd>
             </dl>
             {/* </Link> */}
 
             {/* <Link to="/indent"> */}
-            <dl onClick={()=>fun('/indent')}  className={path === "/indent" ? 'actives' : ''}>
+            <dl onClick={() => fun('/indent')} className={path === "/indent" ? 'actives' : ''}>
                 <dt><CopyOutlined /></dt>
                 <dd>订单</dd>
             </dl>
             {/* </Link> */}
 
             {/* <NavLink to="/my"> */}
-            <dl onClick={()=>fun('/my')}  className={path === "/my" ? 'actives' : ''}>
+            <dl onClick={() => fun('/my')} className={path === "/my" ? 'actives' : ''}>
                 <dt><UserOutlined /></dt>
                 <dd>我的</dd>
             </dl>

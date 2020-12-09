@@ -1,9 +1,15 @@
 import { handleActions } from 'redux-actions'
 
+import {
+  lmjfoodTypeList
+} from '@/constants/actionTypes'
+
 const defaultState = {
   data: [],
 }
 
 export default handleActions({
-  // [GET_HOME_DATA]: (state, action) => ({ ...state, data: action.payload }),
+  [lmjfoodTypeList]: (state, { payload }) => {
+    return { ...state, data: payload.data }
+  },
 }, defaultState)
