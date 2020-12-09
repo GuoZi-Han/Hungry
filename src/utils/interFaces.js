@@ -391,3 +391,55 @@ export function PlacetTheOrder (message) {
       })
   })
 }
+
+// 订单列表
+export function orderList (message,info) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.ddList + message + '/orders?' + qs.stringify(info))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 订单详情
+export function orderDetails (message,info) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.ddInfo + message + '/orders/' + info + '/snapshot')
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 服务中心
+export function serviceCenter () {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.fuWuCenter)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+// 可用红包
+export function AvailableRedEnvelopes (message, info) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.redBag + message + '/hongbaos?' + qs.stringify(info))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}

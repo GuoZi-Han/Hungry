@@ -9,9 +9,9 @@ import Rouer from '@/router'
 import '@/styles/rem'
 import '@/styles/reset.css'
 import '@/styles/index.less'
-import { Out } from '@/utils/interFaces'
+import { AvailableRedEnvelopes } from '@/utils/interFaces'
 
-Out().then(res => {
+AvailableRedEnvelopes(1, {limit: 10}).then(res => {
   console.log(res)
 })
 

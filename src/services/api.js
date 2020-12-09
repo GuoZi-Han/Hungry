@@ -30,10 +30,10 @@ export default {
   addAddress: 'https://elm.cangdu.org/v1/users/:user_id/addresses', //添加收货地址
   delAddress: 'https://elm.cangdu.org/v1/users/:user_id/addresses/:address_id',
   xiaDan: 'https://elm.cangdu.org/v1/users/:user_id/carts/:cart_id/orders', //下单
-  ddList: 'https://elm.cangdu.org/bos/v2/users/:user_id/orders',
-  ddInfo: 'https://elm.cangdu.org/bos/v1/users/:user_id/orders/:order_id/snapshot',
+  ddList: 'https://elm.cangdu.org/bos/v2/users/',
+  ddInfo: 'https://elm.cangdu.org/bos/v1/users/',
   fuWuCenter: 'https://elm.cangdu.org/v3/profile/explain',
-  redBag: 'https://elm.cangdu.org/promotion/v2/users/:user_id/hongbaos', //红包
+  redBag: 'https://elm.cangdu.org/promotion/v2/users/', //红包
   oldRedBag: 'https://elm.cangdu.org/promotion/v2/users/:user_id/expired_hongbaos',
   addRedBag: 'https://elm.cangdu.org/v1/users/:user_id/hongbao/exchange',
   vip: 'https://elm.cangdu.org/admin/login',
