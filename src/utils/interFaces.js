@@ -391,3 +391,16 @@ export function PlacetTheOrder (message) {
       })
   })
 }
+
+// 订单列表
+export function orderList (message,info) {
+  return new Promise ((resolve, reject) => {
+    axios.get(api.xddListiaDan + message + '/orders?' + qs.stringify(info))
+      .then(res => {
+        resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}

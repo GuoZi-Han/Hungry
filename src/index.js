@@ -10,9 +10,9 @@ import Rouer from '@/router'
 import '@/styles/rem'
 import '@/styles/reset.css'
 import '@/styles/index.less'
-import { Out } from '@/utils/interFaces'
+import { orderList } from '@/utils/interFaces'
 
-Out().then(res => {
+orderList(1).then(res => {
   console.log(res)
 })
 
