@@ -1,27 +1,27 @@
 export default {
   getCite: 'https://elm.cangdu.org/v1/cities',
-  getCiteMessage: 'https://elm.cangdu.org/v1/cities/:id',
+  getCiteMessage: 'https://elm.cangdu.org/v1/cities',
   search: 'https://elm.cangdu.org/v1/pois',
-  getAddress: 'https://elm.cangdu.org/v2/pois/:geohash', //定位
+  getAddress: 'https://elm.cangdu.org/v2/pois/', //定位
   eatType: 'https://elm.cangdu.org/v2/index_entry',
   shopList: 'https://elm.cangdu.org/shopping/restaurants', //商铺列表
   searchShop: 'https://elm.cangdu.org/v4/restaurants', //搜索商铺
   allShopType: 'https://elm.cangdu.org/shopping/v2/restaurant/category',
   peiSong: 'https://elm.cangdu.org/shopping/v1/restaurants/delivery_modes',
   shopActivity: 'https://elm.cangdu.org/shopping/v1/restaurants/activity_attributes', //商家属性活动列表
-  shopInfo: 'https://elm.cangdu.org/shopping/restaurant/:shopid',
-  upDateImg: 'https://elm.cangdu.org/v1/addimg/:type',
+  shopInfo: 'https://elm.cangdu.org/shopping/restaurant/',
+  upDateImg: 'https://elm.cangdu.org/v1/addimg/',
   addShop: 'https://elm.cangdu.org/shopping/addshop',
   addEatType: 'https://elm.cangdu.org/shopping/addcategory',
   addEat: 'https://elm.cangdu.org/shopping/addfood',
   getEatList1: 'https://elm.cangdu.org/shopping/v2/menu', //获取食品列表
-  pingJia: 'https://elm.cangdu.org/ugc/v2/restaurants/:restaurant_id/ratings',
-  pingJiaFenShu: 'https://elm.cangdu.org/ugc/v2/restaurants/:restaurant_id/ratings/scores',
-  pingJiaType: 'https://elm.cangdu.org/ugc/v2/restaurants/:restaurant_id/ratings/tags',
+  pingJia: 'https://elm.cangdu.org/ugc/v2/restaurants/',
+  pingJiaFenShu: 'https://elm.cangdu.org/ugc/v2/restaurants/',
+  pingJiaType: 'https://elm.cangdu.org/ugc/v2/restaurants/',
   addShopCar: 'https://elm.cangdu.org/v1/carts/checkout',
   // 20+
-  beiZhu: 'https://elm.cangdu.org/v1/carts/:cart_id/remarks',
-  shouHuoDiZhi: 'https://elm.cangdu.org/v1/users/:user_id/addresses',
+  beiZhu: 'https://elm.cangdu.org/v1/carts/',
+  shouHuoDiZhi: 'https://elm.cangdu.org/v1/users/',
   yanZheng: 'https://elm.cangdu.org/v1/captchas',
   getUser: 'https://elm.cangdu.org/v1/user', 
   login: 'https://elm.cangdu.org/v2/login',
