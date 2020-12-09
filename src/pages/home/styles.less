@@ -34,7 +34,7 @@ img {
   dd {
     padding: 0;
     margin: 0;
-    font-size: 0.22rem!important;
+    font-size: 0.22rem !important;
   }
 }
 
@@ -62,11 +62,191 @@ img {
 
 .lmj_separate {
   height: 0.18rem;
-  margin: 0.2rem 0 0.1rem;
+  margin: 0.3rem 0 0.1rem;
   width: 100%;
   background: #F2F2F2;
 }
 
-.lmj_address_shop{
-  padding: 0.1rem;color: #ccc;text-indent: 0.1rem;
+.lmj_address_shop {
+  padding: 0.1rem;
+  color: #ccc;
+  text-indent: 0.1rem;
+  margin-bottom: 0.2rem;
+}
+
+dl,
+dt,
+dd,
+p {
+  margin-bottom: 0 !important;
+}
+
+// .lmj_shopList {
+//   img{
+//     width: 1.3rem;
+//     height: 1.3rem;
+//     display: block;
+//   }
+//   dl {
+//     display: flex;
+//     border-bottom: 1px solid #eee;
+//     padding: 0.2rem 0.15rem;
+//     font-size: 0.2rem;
+//   }
+
+//   dt {
+//     margin-right: 0.1rem;
+//   }
+
+//   dd {
+//     flex: 1;
+//     margin: 0;
+
+//     >h1,
+//     >h2,
+//     >h3 {
+//       display: flex;
+//       justify-content: space-between;
+//       padding: 0;
+//       margin: 0;
+//     }
+
+//     >h1{
+//       display: flex;
+//     }
+
+//     >h1>p {
+//       width: 80%;
+//       display: flex;
+//       align-items: center;
+//       span {
+//         background: #FFD930;
+//         border-radius: 0.05rem;
+//         font-weight: bold;
+//         width: 12%;
+//         text-align: center;
+//       }
+
+//       time {
+//         font-size: 0.26rem;
+//         padding-left: 0.2rem;
+//         font-weight: bold;
+//         display: inline-block;
+//         width: 80%;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         white-space: nowrap;
+//       }
+//     }
+
+//     >h1>div {
+//       // display: inline-block;
+//       width: 20%;
+//       text-align: right;
+
+//       span {
+//         border: 1px solid #FFFFFF;
+//         display: inline-block;
+//         margin: 0.03rem;
+//         border-radius: 0.1rem;
+//       }
+//     }
+
+//     >h2 {
+//       display: flex;
+//       align-items: center;
+//       margin-top: 0.15rem;
+
+//       div {
+//         display: inline;
+
+//         span {
+//           color: #FF9A0D;
+//         }
+//       }
+
+//       p {
+
+//         span {
+//           color: white;
+//           background: #3190E8;
+//           display: inline-block;
+//           margin-right: 0.08rem;
+//           padding: 0rem 0.04rem;
+//           font-size: 0.1rem;
+//           transform: scale(0.9, 0.9);
+//         }
+
+//         time {
+//           color: #3190E8;
+//           border: #3190E8 1px solid;
+//           display: inline-block;
+//           border-radius: 2px;
+//           padding: 0rem 0.04rem;
+//           font-size: 0.1rem;
+//           transform: scale(0.9, 0.9);
+//         }
+//       }
+//     }
+
+//     >h3 {
+//       margin-top: 0.15rem;
+//       time {
+//         color: #ccc;
+
+//         span {
+//           color: #3190E8;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.ant-rate {
+  height: 20px;
+  font-size: 0px;
+
+  .ant-rate-star {
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+.lmj_shopList .lmj_shop {
+  padding: 0.2rem;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  font-size: 3vw;
+
+  dt {
+    margin-right: 0.15rem;
+  }
+
+  img {
+    width: 24vw;
+    height: 24vw;
+  }
+
+  dd {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .lmj_ddhead {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  .lmj_ddsec{
+    display: flex;
+    justify-content: space-between;
+  }
 }

@@ -19,11 +19,9 @@ function HeaderN(props) {
         }
     }
     const rigFun = () => {
-        if (rig) {
-            return rig
-        } else if (sessionStorage.getItem('token')) {
+        if (sessionStorage.getItem('token')) {
             return null
-        } else {
+        } else{
             return <span><Link to="/login">登录|注册</Link></span>
         }
     }
@@ -32,11 +30,13 @@ function HeaderN(props) {
             <div className="lef">
                 {lefFun()}
             </div>
-            <div className="cen">
+            <div className="cen" onClick={()=>{props.history.push('/SelectCity')}}>
                 {cen}
             </div>
             <div className="rig">
-                {rigFun()}
+                {
+                    !rig?rig:rigFun()
+                }
             </div>
         </div>
     )
