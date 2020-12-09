@@ -1,7 +1,8 @@
-
-html, body {
+html,
+body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,9 +12,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.active {
-  color: #C00;
+#root,
+#root>div,
+.animated-router-container {
+  height: 100%;
 }
-.selected {
-  color: #00F;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: 0.24rem;
+}
+
+.home>section {
+  flex: 1;
+  overflow: auto;
+}
+
+.home>section::-webkit-scrollbar {
+  display: none;
 }
