@@ -1,46 +1,11 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-// import {
-//   Home,
-//   Search,
-//   Order,
-//   Mine,
-//   PasswordChanged,
-//   ResetPassword,
-//   SelectCity,
-//   ShopGeneral,
-//   LocatingCity,
-//   BusinessDetails,
-//   ConfirmOrder,
-//   OrderNote,
-//   InvoiceTitle,
-//   OnlinePayment,
-//   SelectAddress,
-//   AddAddress,
-//   AccountInformation,
-//   ModifyUserName,
-//   EditAddress,
-//   NewAddress,
-//   MyBalance,
-//   BalanceExplain,
-//   MyCoupon,
-//   RedEnvelopesThat,
-//   RecommendedPrize,
-//   VoucherDescription,
-//   SecurityBulletins,
-//   ScreeningOfGoods,
-//   Download,
-//   ServiceCenter,
-//   MemberCenter,
-//   Reenter,
-//   ForARedEnvelope
-// } from '@/router/componens'
 import routs from '@/router/componens'
 import AnimatedRouter from 'react-animated-router';
 import './style.css';
 export default function Router() {
-  console.log(routs,Object.keys(routs))
-  // 路由说明
+
+  // 路由说明 对照page文件名 找对应的路由
   function an_route_explain() {
     // <Route path="/voucherDescription" component={VoucherDescription} />{/* 代金券说明页 */}
     // <Route path="/accountInformation" component={AccountInformation} />{/* 账户信息页 */}
@@ -77,13 +42,31 @@ export default function Router() {
     // <Route path="/my" component={Mine} />{/* 我的页 */}
     // <Route exact path="/" component={Home} />外卖页
   }
-  // 路由说明
+  //无用
   an_route_explain();
+
+  //路由组件
+  const ah_router = [];
+  Object.keys(routs).map((v, i) => {
+    //不符合规则的路由添加判断
+    const ah_cprouter =
+      v === 'PasswordChanged' ? '/login' :
+        v === 'Home' ? '/' :
+          v === 'Mine' ? '/my' :
+            v === 'Order' ? '/indent' :
+              "/" + v.substr(0, 1).toLocaleLowerCase() + v.substr(1);
+    //主页面加exact 防止覆盖后面的路由
+    ah_cprouter === '/' ?
+      ah_router.push(<Route exact path={ah_cprouter} component={routs[v]} key={i} />) :
+      ah_router.push(<Route path={ah_cprouter} component={routs[v]} key={i} />);
+    return true;
+  })
+
   return (
     <div>
-      {/* 路由 取对应的变量名 首字母变小写 */}
+      {/* 规则:路由 取对应的变量名 首字母变小写 */}
       <AnimatedRouter>
-
+        {ah_router}
       </AnimatedRouter>
     </div>
   )
