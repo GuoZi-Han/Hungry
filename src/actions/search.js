@@ -1,18 +1,15 @@
 import { createActions } from 'redux-actions'
 
 import {
-  lmjfoodTypeList,
-  lmjgetShopList
+    gzhSearchShop
 } from '@/constants/actionTypes'
 // 请求
 import {
-  foodTypeList,
-  getShopList
+  searchShop
 } from '@/utils/interFaces'
 
 export default createActions({
-  [lmjfoodTypeList]: opt => foodTypeList(),
-  [lmjgetShopList]: opt => getShopList(opt),
+  [gzhSearchShop]: opt => searchShop(opt),
 })
 
 
