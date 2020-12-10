@@ -2,7 +2,7 @@ import React from 'react'
 import './style.less'
 function InputA(props) {
     const inp = React.useRef('');
-    const { ah_setvalue, text, type, clas } = props;
+    const { ah_setvalue, text, type, clas, setting } = props;
     const cpClas = "ah-inp " + clas;
     return (
         <p>
@@ -11,7 +11,8 @@ function InputA(props) {
                 onBlur={() => {
                     ah_setvalue({
                         text: text,
-                        value: inp.current.value
+                        value: inp.current.value,
+                        setting: setting
                     })
                 }}
                 type={type}
