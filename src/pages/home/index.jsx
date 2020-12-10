@@ -13,6 +13,7 @@ import './styles.less'
 // 组件
 import HeaderN from '@/components/HeaderN'
 import FooterN from '@/components/FooterN'
+import Shopdl from '@/components/Shopdl';
 
 export default connect(
   (state) => ({
@@ -65,35 +66,8 @@ function Home(props) {
         <div className="lmj_shopList">
           {
             shopData.length && shopData.map((v, i) => {
-              if (i > 1) {
-                return null
-              }
               return (
-                <dl key={v.id} className="lmj_shop">
-                  <dt>
-                    <img src={"//elm.cangdu.org/img/" + v.image_path} alt="" />
-                  </dt>
-                  <dd>
-                    <div className="lmj_ddhead">
-                      <p><span>品牌</span><time>{v.name}</time></p>
-                      <div><span>保</span><span>准</span><span>票</span></div>
-                    </div>
-                    <div className="lmj_ddsec">
-                      <div>
-                        <Rate disabled defaultValue={v.rating} />
-                        <span>{v.rating}</span> 月售{v.recent_order_num}单
-                      </div>
-                      <p>
-                        <span>{v.delivery_mode.text}</span>
-                        <time>准时达</time>
-                      </p>
-                    </div>
-                    <div className="lmj_ddsec">
-                      <span>￥{v.float_minimum_order_amount}起送/配送费约¥{v.float_delivery_fee}</span>
-                      <time>{v.distance} / <span>{v.order_lead_time}</span></time>
-                    </div>
-                  </dd>
-                </dl>
+                <Shopdl data={v} key={v.id}></Shopdl>
               )
             })
           }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { LeftOutlined, SearchOutlined } from '@ant-design/icons'
+import { LeftOutlined, SearchOutlined,UserOutlined } from '@ant-design/icons'
 import { Link, withRouter } from 'react-router-dom'
 
 import "./style.less"
@@ -20,7 +20,7 @@ function HeaderN(props) {
     }
     const rigFun = () => {
         if (sessionStorage.getItem('token')) {
-            return null
+            return <UserOutlined />
         } else{
             return <span><Link to="/login">登录|注册</Link></span>
         }
