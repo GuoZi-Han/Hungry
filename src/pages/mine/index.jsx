@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import {
   MobileOutlined,
@@ -29,7 +30,7 @@ function Mine(props) {
         <div>
           <div>
             <div>
-              <img src={headportrait} />
+              <img src={headportrait} alt="" />
             </div>
           </div>
           <div>

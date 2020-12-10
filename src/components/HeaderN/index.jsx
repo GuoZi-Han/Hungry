@@ -1,5 +1,5 @@
 import React from 'react'
-import { LeftOutlined, SearchOutlined } from '@ant-design/icons'
+import { LeftOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons'
 import { Link, withRouter } from 'react-router-dom'
 
 import "./style.less"
@@ -20,8 +20,8 @@ function HeaderN(props) {
     }
     const rigFun = () => {
         if (sessionStorage.getItem('token')) {
-            return null
-        } else{
+            return <UserOutlined />
+        } else {
             return <span><Link to="/login">登录|注册</Link></span>
         }
     }
@@ -30,12 +30,16 @@ function HeaderN(props) {
             <div className="lef">
                 {lefFun()}
             </div>
-            <div className="cen" onClick={()=>{props.history.push('/SelectCity')}}>
-                {cen}
+            <div className="cen">
+                {
+                    props.match.path === "/" ? <span onClick={() => { props.history.push('/SelectCity') }}>{cen}</span> :
+                        <span>{cen}</span>
+                }
+
             </div>
             <div className="rig">
                 {
-                    !rig?rig:rigFun()
+                    !rig ? rig : rigFun()
                 }
             </div>
         </div>
