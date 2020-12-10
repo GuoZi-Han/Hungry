@@ -22,9 +22,11 @@ export default {
   // 20+
   beiZhu: 'https://elm.cangdu.org/v1/carts/',
   shouHuoDiZhi: 'https://elm.cangdu.org/v1/users/',
-  yanZheng: 'https://elm.cangdu.org/v1/captchas',
+  //代理
+  yanZheng: '/api/v1/captchas',
+  login: '/api/v2/login',
+  
   getUser: 'https://elm.cangdu.org/v1/user', 
-  login: 'https://elm.cangdu.org/v2/login',
   unLogin: 'https://elm.cangdu.org/v2/signout', 
   upPass: 'https://elm.cangdu.org/v2/changepassword',//修改密码
   addAddress: 'https://elm.cangdu.org/v1/users/:user_id/addresses', //添加收货地址
