@@ -1,16 +1,40 @@
-.pages-home {
-  .xxx {
+.lmj_NavFun{
+  height: 0.8rem;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  padding: 0.18rem 0;
+  // transition: all 20s inherit;
+  >div{
+    width: 100%;
     display: flex;
-    .abc {
-      display: none;
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: auto;
-      border: 5px #f00 solid;
-      width: 100px;
-      height: 100px;
+    align-items: center;
+    justify-content: center;
+    // >span{
+      
+    // }
+  }
+  >div:nth-child(2){
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+  .navOn1{
+    color: #3190e8;
+    >span{
+      animation: one 0.2s ease-in forwards;
     }
   }
-
-  
+  .navOn2>span{
+    animation: two 0.2s ease-in forwards;
+  }
+}
+@keyframes one
+{
+    from {}
+    to {transform: rotate(180deg);}
+}
+@keyframes two
+{
+    from {transform: rotate(180deg)}
+    to {transform: rotate(0deg);}
 }

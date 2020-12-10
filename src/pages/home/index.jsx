@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Carousel, Rate } from 'antd';
+import { Carousel } from 'antd';
 import { connect } from 'react-redux'
 import { ShopOutlined } from '@ant-design/icons'
 
@@ -32,7 +32,10 @@ function Home(props) {
     props.getShopList({ latitude: 31.22967, longitude: 121.4762 })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  console.log(shopData);
+  const ScreeningOfGoods = (val) => {
+    // console.log(val);
+    props.history.push('/screeningOfGoods?title=' + val.title)
+  }
   return (
     <div className="home lmj_home">
       <HeaderN
@@ -49,7 +52,9 @@ function Home(props) {
                   {
                     v.map((vv, ii) => {
                       return (
-                        <dl key={navdata[(i + 1) * ii].id}>
+                        <dl
+                          onClick={() => ScreeningOfGoods(navdata[(i + 1) * ii])}
+                          key={navdata[(i + 1) * ii].id}>
                           <dt><img src={"https://fuss10.elemecdn.com" + navdata[(i + 1) * ii].image_url} alt="" /></dt>
                           <dd>{navdata[(i + 1) * ii].title}</dd>
                         </dl>
