@@ -12,10 +12,10 @@ export default connect((state) => {
 
 })(PasswordChanged);
 function PasswordChanged(props) {
-  const [login_inp] = React.useState(
+  const [login_inp, setLogin_inp] = React.useState(
     [
       { text: '账号', type: 'text', clas: "ah-user" },
-      { text: '密码', type: 'passward', clas: "ah-pwd" },
+      { text: '密码', type: 'password', clas: "ah-pwd" },
       { text: '验证码', type: 'text', clas: "ah-yan" }
     ]
   )
@@ -43,6 +43,9 @@ function PasswordChanged(props) {
   }
   const ah_hua_click = () => {
     setah_hua_cla(!ah_hua_cla);
+    const cplogin_inp = login_inp;
+    ah_hua_cla ? cplogin_inp[1].type = 'password' : cplogin_inp[1].type = 'text';
+    setLogin_inp(cplogin_inp);
   }
   return (
     <div className='ah-login'>
@@ -64,7 +67,7 @@ function PasswordChanged(props) {
             )
           })
         }
-        <div className={ah_hua_cla?'ah-hua ah-hua-true':'ah-hua'}>
+        <div className={ah_hua_cla ? 'ah-hua ah-hua-true' : 'ah-hua'}>
           <span>abc···</span>
           <p onClick={ah_hua_click}></p>
         </div>
