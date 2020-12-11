@@ -5,8 +5,8 @@ import HeaderN from '@/components/HeaderN'
 import FooterN from '@/components/FooterN'
 import { Input, Button } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
-import Icon from '@ant-design/icons';
 import { connect } from 'react-redux'
+import _ from 'lodash'
 // 搜索action
 import searchActions from '@/actions/search'
 // 引入命名
@@ -29,6 +29,7 @@ function Search(props) {
   const [value, setValue] = useState()
   const [data, setData] = useState([])
   const [history_data, setHistory_data] = useState([])
+  const [history_Array, setHistory_Array] = useState([])
   //  调用生命周期 监听数据
   useEffect(() => {
     // 判断数组长度
@@ -42,7 +43,7 @@ function Search(props) {
       // 隐藏盒子
       setIsBool('none')
     }
-  }, [data, value])
+  }, [data, value, history_Array])
 
   // 输入框onchange事件
   const searchInput = (e) => {
@@ -56,17 +57,17 @@ function Search(props) {
   const searchClick = ()  => {
     if (sessionStorage.getItem('historyArray')) {
       history_data.push(value)
-      console.log(history_data)
       sessionStorage.setItem('historyArray',JSON.stringify(history_data))
+      setHistory_Array(history_data)
     } else {
       const arr = sessionStorage.getItem('historyArray')
-      console.log(arr)
       const historyBool = arr.some(v => {
         return v === value
       })
       if (!historyBool) {
         arr.push(value)
         sessionStorage.setItem('historyArray',arr)
+        setHistory_Array(arr)
       }
     }
     // 请求数据 
@@ -79,6 +80,20 @@ function Search(props) {
           setData([])
         }
       })
+  }
+  // 删除单条历史记录
+  const delHistoryArray = (item) => {
+    let history_array = _.get(JSON.parse(sessionStorage.getItem('historyArray')),[])
+    if (history_array.length !== 0) {
+      history_array = history_array.filter(v => {
+        return v !== item
+      })
+      sessionStorage.setItem('historyArray', history_array)
+      setHistory_Array(history_array)
+    } else {
+      sessionStorage.setItem('historyArray', [])
+      setHistory_Array(history_array)
+    }
   }
 
   return (
@@ -130,11 +145,11 @@ function Search(props) {
           <h4 className = 'gzh-font'>搜索历史</h4>
           <ul>
             {
-              JSON.parse(sessionStorage.getItem('historyArray')).map((v, i) => {
+              history_Array.map((v, i) => {
                 return (
                   <li key = { i }>
                     <h6>{ v }</h6>
-                    <CloseOutlined />
+                    <CloseOutlined onClick = { () => delHistoryArray(v) }/>
                   </li>
                 )
               })
