@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import qs from 'qs'
@@ -37,7 +38,7 @@ function Mine(props) {
         <div>
           <div>
             <div>
-              <img src={headportrait} />
+              <img src={headportrait} alt="" />
             </div>
           </div>
           <div>

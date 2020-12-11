@@ -8,3 +8,4 @@ export const lmjgetShopList = "getShopList"
 
 /* Search */
 export const gzhSearchShop = 'searchShop'
+export const gzhHistoryArray = 'gzhHistoryArray'
