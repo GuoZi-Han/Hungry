@@ -37,13 +37,13 @@ function Home(props) {
     props.history.push('/screeningOfGoods?title=' + val.title)
   }
   return (
-    <div className="home lmj_home">
+    <div className="home">
       <HeaderN
         isSearch={true}
         cen="天津第三市政公路工程"
         rig
       />
-      <section>
+      <section className="lmj_sec">
         <Carousel>
           {
             navdata.length && Array(navdata.length / 8).fill(Array(8).fill(1)).map((v, i) => {

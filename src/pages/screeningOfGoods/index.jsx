@@ -78,8 +78,8 @@ function ScreeningOfGoods(props) {
   }
   return (
     <div className="lmj_ScreeningOfGoods home">
-      <HeaderN cen={type} className="topF" />
-      <div className="lmj_NavFun topF">
+      <HeaderN cen={type} />
+      <div className="lmj_NavFun">
         <div onClick={() => navFun(1)} className={"navOn" + bool1}>
           {typeTxt}
           <CaretDownOutlined />
@@ -94,7 +94,7 @@ function ScreeningOfGoods(props) {
         </div>
       </div>
       <section className="lmj_ModalSec">
-        <div className="bbb">
+        <div>
           {
             shopDataFilter().length ? shopDataFilter().map((v, i) => {
               return (
