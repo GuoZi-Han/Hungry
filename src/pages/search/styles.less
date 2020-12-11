@@ -23,6 +23,13 @@
       box-sizing: border-box !important;
       font-weight: bold !important;
     }
+    .ant-input{
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .ant-input-affix-wrapper{
+      background: #eeeeee !important;
+    }
   }
   .gzh_search_list{
     width: 100%;
@@ -30,6 +37,58 @@
       padding: 0.2rem;
       box-sizing: border-box;
       color: #757575;
+      font-size: 0.3rem;
+    }
+    .gzh_show_list{
+      width: 100%;
+      li{
+        width: 100%;
+        dl{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: white;
+          margin: 0;
+          dt{
+            width: 15%;
+            padding: 0.15rem;
+            box-sizing: border-box;
+            img{
+              width: 100%;
+              height: auto;
+              display: block;
+              margin-top: -0.2rem;
+            }
+          }
+          dd{
+            width: 85%;
+            padding: 0.2rem;
+            box-sizing: border-box;
+            border-bottom: 1px solid #e4e4e4;
+            p{
+              width: 100%;
+              padding: 0;
+              margin: 0;
+              span{
+                margin: 0 0.1rem;
+              }
+              .svg{
+                display: inline-block;
+                margin: 0 0.1rem;
+                padding: 0.0001rem 0.02rem;
+                border: 1px solid rgb(255, 96, 0);
+                color: #333;
+                transform: scale(0.7) skew(-20deg); /* 定义沿着 X 和 Y 轴的 2D 倾斜转换*/
+                span{
+                  color: rgb(255, 96, 0);
+                  border-bottom: 1px solid rgb(255, 96, 0);
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
   .gzh-title{
