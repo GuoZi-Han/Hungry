@@ -1,7 +1,8 @@
 import { createActions } from 'redux-actions'
 
 import {
-    gzhSearchShop
+    gzhSearchShop,
+    gzhHistoryArray
 } from '@/constants/actionTypes'
 // 请求
 import {
@@ -10,6 +11,7 @@ import {
 
 export default createActions({
   [gzhSearchShop]: opt => searchShop(opt),
+  [gzhHistoryArray]: opt => opt
 })
 
 
