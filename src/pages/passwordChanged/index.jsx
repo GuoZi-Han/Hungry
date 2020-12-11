@@ -1,17 +1,24 @@
 import React from 'react'
 import './styles.less'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import qs from 'qs'
 
 import HeaderN from '@/components/HeaderN'
 import InputA from '@/components/InputA'
+import ModelN from '@/components/ModelN'
 
 import { getCode, Login } from '@/utils/interFaces'
 export default connect((state) => {
   return state;
 }, {
 
-})(PasswordChanged);
+})(withRouter(PasswordChanged));
 function PasswordChanged(props) {
+  //弹出框
+  const [Model_show, setModel_show] = React.useState(false);
+  //弹出框提示语
+  const [Model_text, setModel_text] = React.useState('');
   //验证码
   const [ah_code, setAh_code] = React.useState('');
   //inpt框联动数据
@@ -49,33 +56,57 @@ function PasswordChanged(props) {
     }
     setAllvalue(cpAllvalue);
   }
-  const ah_login_btn = () => {
-    console.log(allvalue)
-    let username='';
-    let password='';
-    let captcha_code='';
-    allvalue.forEach(v=>{
-      if(v.setting==='username'){
-        username=v.value;
-      }else if(v.setting==='password'){
-        password=v.value;
-      }else if(v.setting==='captacha_code'){
-        captcha_code=v.value;
+  const ah_login_btn = async () => {
+    let username = '';
+    let password = '';
+    let captcha_code = '';
+    allvalue.forEach(v => {
+      if (v.setting === 'username') {
+        username = v.value;
+      } else if (v.setting === 'password') {
+        password = v.value;
+      } else if (v.setting === 'captacha_code') {
+        captcha_code = v.value;
       }
     })
-    const obj={
+    //判断是否显示错误提示框
+    if (username === '' && password === '' && captcha_code === '') {
+      setModel_show(true)
+      setModel_text('请输入手机号/邮箱/用户名')
+    } else if (username === '') {
+      setModel_show(true)
+      setModel_text('账号为空')
+    } else if (password === '') {
+      setModel_show(true)
+      setModel_text('密码为空')
+    } else if (captcha_code === '') {
+      setModel_show(true)
+      setModel_text('验证码为空')
+    }
+    const obj = {
       username,
       password,
       captcha_code
     }
-    console.log(obj)
-    Login(obj).then(res => {
-      console.log(res)
-      
-      // username
-      // password
-      // captacha_code
-    })
+    const res = await Login(obj)
+    if (res.data.username) {
+      const opt = {
+        username:res.data.username,
+        sale: res.data.gift_amount,
+        money: res.data.balance,
+        integral: res.data.point
+      }
+      sessionStorage.setItem('token', qs.stringify(opt));
+      props.location.pathname.substr(6) === '/main' ?
+        props.history.push('/') :
+        props.history.push('/my')
+    } else {
+      setModel_show(true)
+      setModel_text(res.data.message)
+    }
+  }
+  const ah_model_click = (opt) => {
+    setModel_show(opt);
   }
   const ah_hua_click = () => {
     setah_hua_cla(!ah_hua_cla);
@@ -134,6 +165,7 @@ function PasswordChanged(props) {
           登录
         </button>
       </p>
+      {Model_show ? <ModelN code_bool_Model={ah_get_code} click={ah_model_click} errModel={Model_text} /> : ''}
     </div>
   )
 }

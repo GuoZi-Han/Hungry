@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import qs from 'qs'
 import {
   MobileOutlined,
   RightOutlined,
@@ -15,12 +17,18 @@ import FooterN from '@/components/FooterN'
 function Mine(props) {
   const [headline, setHeadline] = useState('我的')
   const [headportrait, setHeadportrait] = useState('/img/headportrait.jpg')
-  const [accountNumber, setAccountNumber] = useState('')
+  const [accountNumber, setAccountNumber] = useState('');
   const [accountStatus, setAccountStatus] = useState('暂无绑定手机号')
   const [balance, setBalance] = useState('0.00') //余额
   const [discounts, setDiscounts] = useState(0) //优惠
   const [integral, setIntegral] = useState(0) //积分
-
+  React.useEffect(()=>{
+    const cpaccountNumber=qs.parse(sessionStorage.getItem('token'));
+    setBalance(cpaccountNumber.money)
+    setDiscounts(cpaccountNumber.sale)
+    setIntegral(cpaccountNumber.integral)
+    setAccountNumber(cpaccountNumber.username)
+  },[]);
   return (
 
     <div className="home lmj_home">
@@ -35,7 +43,7 @@ function Mine(props) {
           <div>
             <p>
               {
-                accountNumber === '' ? '登录/注册' : accountNumber
+                sessionStorage.getItem('token') ? accountNumber : <Link to='/login/my"'>登录/注册</Link>
               }
             </p>
             <p>
@@ -107,7 +115,7 @@ function Mine(props) {
           </div>
           <div>
             <span>
-            <AntDesignOutlined />
+              <AntDesignOutlined />
             </span>
             <div>
               <span>

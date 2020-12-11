@@ -50,7 +50,7 @@ export default function Router() {
   Object.keys(routs).map((v, i) => {
     //不符合规则的路由添加判断
     const ah_cprouter =
-      v === 'PasswordChanged' ? '/login' :
+      v === 'PasswordChanged' ? '/login/:my' :
         v === 'Home' ? '/' :
           v === 'Mine' ? '/my' :
             v === 'Order' ? '/indent' :

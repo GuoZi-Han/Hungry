@@ -22,7 +22,7 @@ function HeaderN(props) {
         if (sessionStorage.getItem('token')) {
             return <UserOutlined />
         } else{
-            return <span><Link to="/login">登录|注册</Link></span>
+            return <span><Link to="/login/main">登录|注册</Link></span>
         }
     }
     return (
