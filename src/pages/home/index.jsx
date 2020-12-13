@@ -28,8 +28,10 @@ export default connect(
 function Home(props) {
   const { navdata, shopData } = props
   useEffect(() => {
-    props.foodTypeList()
-    props.getShopList({ latitude: 31.22967, longitude: 121.4762 })
+    if (!navdata.length) {
+      props.foodTypeList()
+      props.getShopList({ latitude: 31.22967, longitude: 121.4762 })
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const ScreeningOfGoods = (val) => {
