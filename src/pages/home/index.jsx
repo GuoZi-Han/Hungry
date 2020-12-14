@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Carousel } from 'antd';
 import { connect } from 'react-redux'
 import { ShopOutlined } from '@ant-design/icons'
+import qs from 'qs'
 
 // redux-actions
 import homeAc from '@/actions/home'
@@ -35,8 +36,8 @@ function Home(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const ScreeningOfGoods = (val) => {
-    // console.log(val);
-    props.history.push('/screeningOfGoods?title=' + val.title)
+    // console.log(val,{ latitude: 31.22967, longitude: 121.4762 });
+    props.history.push('/screeningOfGoods?'+qs.stringify({title:val.title,latitude: 31.22967, longitude: 121.4762}))
   }
   return (
     <div className="home">

@@ -1,15 +1,20 @@
 import { handleActions } from 'redux-actions'
 
 import {
-    lmjshopInfo
+    lmjshopInfo,
+    lmjShopFoodList
 } from '@/constants/actionTypes'
 
 const defaultState = {
-    data: {},
+    shopInfo: {},
+    shopType: []
 }
 
 export default handleActions({
     [lmjshopInfo]: (state, { payload }) => {
-        return { ...state, data: { ...payload.data } }
+        return { ...state, shopInfo: { ...payload.data } }
+    },
+    [lmjShopFoodList]: (state, { payload }) => {
+        return { ...state, shopType: [...payload.data] }
     },
 }, defaultState)
