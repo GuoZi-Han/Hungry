@@ -5,31 +5,42 @@ import { CaretDownOutlined } from '@ant-design/icons'
 import './styles.less'
 import homeAc from '@/actions/home'
 import {
-  lmjgetShopList
+  lmjgetShopList,
+  lmjGetAllShopList
 } from '@/constants/actionTypes'
 import HeaderN from '@/components/HeaderN'
 import Shopdl from '@/components/Shopdl'
 import ModalN from '@/components/ModalN'
 
 export default connect(
-  (state) => ({ shopData: state.home.shopData }),
+  (state) => ({
+    shopData: state.home.shopData,
+    typeData: state.home.typeData,
+  }),
   {
-    [lmjgetShopList]: homeAc[lmjgetShopList]
+    [lmjgetShopList]: homeAc[lmjgetShopList],
+    [lmjGetAllShopList]: homeAc[lmjGetAllShopList],
   }
 )(ScreeningOfGoods)
 function ScreeningOfGoods(props) {
-  const [type] = useState(
-    decodeURIComponent(props.location.search).split('?')[1].split('=')[1] ?
-      decodeURIComponent(props.location.search).split('?')[1].split('=')[1] : ""
-  )
+  const path = {}
+  decodeURIComponent(props.location.search).split('?')[1].split('&').forEach(v => {
+    path[v.split('=')[0]] = v.split('=')[1]
+  })
+  const [type] = useState(path.title)
   const [typeTxt, setTypeTxt] = useState(type)
   const [bool1, setBool1] = useState("")
   const [bool2, setBool2] = useState("")
   const [bool3, setBool3] = useState("")
   // const [visible, setVisible] = useState(false)
   useEffect(() => {
+    props.lmjGetAllShopList({ latitude: path.latitude, longitude: path.longitude })
     if (!props.shopData.length) {
-      (async () => { await props.getShopList({ latitude: 31.22967, longitude: 121.4762 }) })()
+      (async () => {
+        await props.getShopList({
+          latitude: path.latitude, longitude: path.longitude
+        })
+      })()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -103,14 +114,14 @@ function ScreeningOfGoods(props) {
             }) : "暂无"
           }
         </div>
-        {/* <ModalN>
+        <ModalN hidden={false}>
           <p>123456</p>
           <p>123456</p>
           <p>123456</p>
           <p>123456</p>
           <p>123456</p>
           <p>123456</p>
-        </ModalN> */}
+        </ModalN>
       </section>
     </div>
   )

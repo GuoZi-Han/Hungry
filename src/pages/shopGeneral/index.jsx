@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+<<<<<<< HEAD
 import _ from 'loadsh'
 
 // redux-actions

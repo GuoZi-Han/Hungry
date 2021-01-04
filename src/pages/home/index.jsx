@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { Carousel } from 'antd';
+import { Carousel, Spin } from 'antd';
 import { connect } from 'react-redux'
 import { ShopOutlined } from '@ant-design/icons'
+import qs from 'qs'
 
 // redux-actions
 import homeAc from '@/actions/home'
@@ -28,12 +29,17 @@ export default connect(
 function Home(props) {
   const { navdata, shopData } = props
   useEffect(() => {
-    props.foodTypeList()
-    props.getShopList({ latitude: 31.22967, longitude: 121.4762 })
+    if (!navdata.length) {
+      props.foodTypeList()
+      props.getShopList({ latitude: 31.22967, longitude: 121.4762 })
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const ScreeningOfGoods = (val) => {
-    props.history.push('/screeningOfGoods?title=' + val.title)
+// <<<<<<< HEAD
+//     props.history.push('/screeningOfGoods?title=' + val.title)
+    // console.log(val,{ latitude: 31.22967, longitude: 121.4762 });
+    props.history.push('/screeningOfGoods?' + qs.stringify({ title: val.title, latitude: 31.22967, longitude: 121.4762 }))
   }
   return (
     <div className="home">
@@ -69,11 +75,11 @@ function Home(props) {
         <div className="lmj_address_shop"><ShopOutlined />  附近商家</div>
         <div className="lmj_shopList">
           {
-            shopData.length && shopData.map((v, i) => {
+            shopData.length ? shopData.map((v, i) => {
               return (
                 <Shopdl data={v} key={v.id}></Shopdl>
               )
-            })
+            }) : <div style={{textAlign:'center'}}><Spin /></div>
           }
         </div>
       </section>
