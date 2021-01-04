@@ -11,14 +11,16 @@ import _ from 'lodash'
 import searchActions from '@/actions/search'
 // 引入命名
 import {
-  gzhSearchShop
+  gzhSearchShop,
+  gzhHistoryArray
 } from '@/constants/actionTypes'
 
 // redux
 export default connect(
-  (state) => ({ data: state }),
+  (state) => ({ data: state.search }),
   {
-    [gzhSearchShop]: searchActions[gzhSearchShop]
+    [gzhSearchShop]: searchActions[gzhSearchShop],
+    [gzhHistoryArray]: searchActions[gzhHistoryArray]
   }
 )(Search)
 
@@ -28,11 +30,12 @@ function Search(props) {
   const [gzh_bool, setGhz_bool] = useState('none')
   const [value, setValue] = useState()
   const [data, setData] = useState([])
-  const [history_data, setHistory_data] = useState([])
-  const [history_Array, setHistory_Array] = useState([])
+  const [historyArray, setHistoryArray] = useState([])
   //  调用生命周期 监听数据
   useEffect(() => {
     // 判断数组长度
+    setData(props.data.data)
+    setHistoryArray(props.data.search_arr)
     data.length !== 0 ? setGhz_bool('block') : setGhz_bool('none')
     //判断数组长度以及value值是否符合要求
     if (data.length && value === '') {
@@ -43,7 +46,7 @@ function Search(props) {
       // 隐藏盒子
       setIsBool('none')
     }
-  }, [data, value, history_Array])
+  }, [props.data.data, value])
 
   // 输入框onchange事件
   const searchInput = (e) => {
@@ -55,50 +58,18 @@ function Search(props) {
   }
   // 点击提交按钮事件
   const searchClick = ()  => {
-    if (sessionStorage.getItem('historyArray')) {
-      history_data.push(value)
-      sessionStorage.setItem('historyArray',JSON.stringify(history_data))
-      setHistory_Array(history_data)
-    } else {
-      const arr = sessionStorage.getItem('historyArray')
-      const historyBool = arr.some(v => {
-        return v === value
-      })
-      if (!historyBool) {
-        arr.push(value)
-        sessionStorage.setItem('historyArray',arr)
-        setHistory_Array(arr)
-      }
-    }
-    // 请求数据 
-    props.searchShop({ geohash: '31.22967,121.4762', keyword: value})
-      .then(res => {
-        console.log(res.payload.data)
-        if (res.payload.data.length > 0) {
-          setData(res.payload.data)
-        } else {
-          setData([])
-        }
-      })
+    props.searchShop({ geohash: '31.12345,121.4762', keyword: value})
+    props[gzhHistoryArray](value)
   }
+  console.log(props.data,666)
   // 删除单条历史记录
   const delHistoryArray = (item) => {
-    let history_array = _.get(JSON.parse(sessionStorage.getItem('historyArray')),[])
-    if (history_array.length !== 0) {
-      history_array = history_array.filter(v => {
-        return v !== item
-      })
-      sessionStorage.setItem('historyArray', history_array)
-      setHistory_Array(history_array)
-    } else {
-      sessionStorage.setItem('historyArray', [])
-      setHistory_Array(history_array)
-    }
+    
   }
 
   return (
     <div className="home lmj_home">
-      <HeaderN />
+      <HeaderN cen = "搜索"/>
       <section className = 'gzh_section'>
         <div className = 'gzh_search_div'>
           <Input
@@ -118,7 +89,7 @@ function Search(props) {
         <div className = 'gzh_search_list' style = {{ display: gzh_bool }} >
           <h4>商家</h4>
           <ul className = 'gzh_show_list'>
-            {
+            {/* {
               data.map((v, i) => {
                 return (
                   <li key = { i }>
@@ -138,14 +109,14 @@ function Search(props) {
                   </li>
                 )
               })
-            }
+            } */}
           </ul>
         </div>
         <div className = 'gzh-title' style = {{ display: isBool }}>
           <h4 className = 'gzh-font'>搜索历史</h4>
           <ul>
             {
-              history_Array.map((v, i) => {
+              historyArray.map((v, i) => {
                 return (
                   <li key = { i }>
                     <h6>{ v }</h6>

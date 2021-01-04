@@ -11,3 +11,4 @@ export const lmjGetAllShopList = "lmjGetAllShopList"
 
 /* Search */
 export const gzhSearchShop = 'searchShop'
+export const gzhHistoryArray = 'gzhHistoryArray'
