@@ -57,7 +57,7 @@ function SelectCity (props) {
                         if(!allCity[vv]) return null
                         return (
                             allCity[vv].map((v1, i)=> {
-                              console.log(v1)
+                              // console.log(v1)
                               return <li key = { i }>{ v1.name }</li>
                             })
                         )
