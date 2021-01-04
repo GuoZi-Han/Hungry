@@ -33,7 +33,6 @@ function Home(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const ScreeningOfGoods = (val) => {
-    // console.log(val);
     props.history.push('/screeningOfGoods?title=' + val.title)
   }
   return (

@@ -9,3 +9,8 @@ export const lmjgetShopList = "getShopList"
 /* Search */
 export const gzhSearchShop = 'searchShop'
 export const gzhHistoryArray = 'gzhHistoryArray'
+
+
+/*shopFeneral*/
+export const ahshopFEneral = 'ahshopfener'
+export const ahshopxiang= 'shopxiang'

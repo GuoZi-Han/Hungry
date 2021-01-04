@@ -54,7 +54,8 @@ export default function Router() {
         v === 'Home' ? '/' :
           v === 'Mine' ? '/my' :
             v === 'Order' ? '/indent' :
-              "/" + v.substr(0, 1).toLocaleLowerCase() + v.substr(1);
+              v === 'ShopGeneral' ? '/shopGeneral/:id' :
+                "/" + v.substr(0, 1).toLocaleLowerCase() + v.substr(1);
     //主页面加exact 防止覆盖后面的路由
     ah_cprouter === '/' ?
       ah_router.push(<Route exact path={ah_cprouter} component={routs[v]} key={i} />) :

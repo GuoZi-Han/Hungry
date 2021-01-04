@@ -1,6 +1,6 @@
 import React from 'react'
 import { Rate } from 'antd'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import './style.less'
 
@@ -8,7 +8,7 @@ function Shopdl(props) {
     const { data } = props
     const v = { ...data }
     return (
-        <dl key={v.id} className="lmj_shop" onClick={() => { props.history.push('/shopGeneral') }}>
+        <dl key={v.id} className="lmj_shop" onClick={() => { props.history.push('/shopGeneral/' + v.id) }}>
             <dt>
                 <img src={"//elm.cangdu.org/img/" + v.image_path} alt="" />
             </dt>
