@@ -200,7 +200,6 @@ export function addFood(message) {
 
 // 获取食品列表
 export function getFoodNewList(message) {
-  console.log(message)
   return new Promise((resolve, reject) => {
     axios.get(api.getEatList1 + '?' + message)
       .then(res => {

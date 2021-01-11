@@ -12,6 +12,7 @@ const defaultState = {
 
 export default handleActions({
     [ahshopFEneral]: (state, { payload }) => {
+        console.log(payload.data)
         return { ...state, ah_shopFen: payload.data }
     },
     [ahshopxiang]: (state, { payload }) => {

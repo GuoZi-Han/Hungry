@@ -72,7 +72,7 @@ function Home(props) {
           }
         </Carousel>
         <div className="lmj_separate"></div>
-        <div className="lmj_address_shop"><ShopOutlined />  附近商家</div>
+        <div className="lmj_address_shop"><ShopOutlined />附近商家</div>
         <div className="lmj_shopList">
           {
             shopData.length ? shopData.map((v, i) => {
